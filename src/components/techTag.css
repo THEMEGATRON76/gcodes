@@ -1,0 +1,31 @@
+.techTag{
+    display: inline-block;
+    cursor: default;
+}
+.techTag > div{
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    padding: 0px 8px 0px 8px;
+    border-width: 2px ;
+    border-color: rgb(48, 48, 48);
+    border-style: solid;
+    border-radius: 8px;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.techTag > div:hover{
+    background-color: rgba(68, 68, 68, 0.2);
+}
+
+.techTag > div > img{
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+}
+
+.techTag > div > p{
+    font-size: small;
+}

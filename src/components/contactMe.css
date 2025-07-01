@@ -1,0 +1,66 @@
+#ContactMe{
+    margin-top: 70px;
+}
+#ContactMe >p{
+     color: rgba(255, 255, 255, 0.7);
+}
+#ContactMe > .formCard{
+    margin-top: 30px;
+     background-color: rgb(34, 34, 34);
+     padding: 50px;
+     border-color:rgb(48, 48, 48);
+     border-width: 1.8px;
+     border-style: solid;
+     border-radius: 12px;
+}
+
+#ContactMe > div > form{
+    display: block;
+}
+
+.TextboxesPlacement{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.TextboxesPlacement >:first-child{
+    margin-right: 8px;
+} 
+
+#ContactMe > div> form > button{
+     background-color: rgb(48, 48, 48);
+     padding: 5px 20px 5px 20px;
+}
+.socilas{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.socilas > button{
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.socilas > button:hover{
+     background-color: rgb(58, 58, 58);
+}
+.socilas > button > i{
+    margin-left: 8px;
+    margin-right: 8px;
+    transition: 0.5s;
+}
+.socilas > button:hover> i{
+         margin-left: 12px;
+}
+
+.socilas > button>img{
+    margin-right:5px ;
+    vertical-align: middle;
+    transition: 0.5s;
+}
+
+.socilas > button:hover > img{
+    margin-left: 5px;
+}

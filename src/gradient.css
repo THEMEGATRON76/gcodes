@@ -1,0 +1,104 @@
+.hero-section {
+  position: relative;
+  height: 10vh; /* Takes up 60% of viewport height */
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animated gradient background with transparency */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(139, 92, 246, 0.8),    /* Purple with transparency */
+    rgba(168, 85, 247, 0.8),    /* Violet with transparency */
+    rgba(192, 132, 252, 0.8),   /* Light Purple with transparency */
+    rgba(34, 197, 94, 0.8),     /* Green with transparency */
+    rgba(22, 163, 74, 0.8),     /* Dark Green with transparency */
+    rgba(5, 150, 105, 0.8),     /* Emerald with transparency */
+    rgba(139, 92, 246, 0.8),    /* Purple (repeat for smooth loop) */
+    rgba(168, 85, 247, 0.8),    /* Violet */
+    rgba(192, 132, 252, 0.8)    /* Light Purple */
+  );
+  background-size: 100% 100%;
+  animation: gradientShift 15s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Subtle overlay for better text readability */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Light overlay */
+  z-index: 2;
+}
+
+/* Ensure content stays above the background */
+.hero-section > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* Main gradient animation */
+@keyframes gradientShift {
+  0% {
+    transform: translateX(-66.66%);
+  }
+  50% {
+    transform: translateX(-33.33%);
+  }
+  100% {
+    transform: translateX(-66.66%);
+  }
+}
+
+/* Content sections below hero */
+.content-section {
+  background-color: #0a0a0a;
+  color: white;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation and content styling */
+.navigation-bar,
+.home-content,
+nav,
+main,
+section,
+header {
+  position: relative;
+  z-index: 3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 50vh; /* Smaller height on mobile */
+  }
+  
+  .hero-section::before {
+    width: 250%;
+    animation-duration: 12s;
+  }
+}
+
+/* Performance optimization for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::before {
+    animation: none;
+    background: linear-gradient(45deg, rgba(139, 92, 246, 0.8), rgba(34, 197, 94, 0.8));
+  }
+}

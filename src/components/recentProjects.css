@@ -1,0 +1,65 @@
+#projects{
+    margin: 50px 0px 60px 0px;
+}
+
+#projects >p{
+    color:rgba(255, 255, 255, 0.7) ;
+}
+#projects > img{
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    margin-top: 8px;
+}
+.dateProjects{
+    font-size: smaller;
+}
+
+#projects > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+#projects > button{
+    margin-top: 20px;
+     background-color:rgb(59, 130, 246);
+}
+#projects > button:hover{
+    background-color:rgb(37 , 99,235) ;
+}
+#projects > button > i{
+    font-size: 20px;
+    transition: 0.5s;
+}
+#projects > button > .fa-arrow-right{
+    font-size: medium;
+}
+#projects >button:hover > i{
+    margin-left: 5px;
+}
+#projects >div > .techTag{
+    margin-right: 10px;
+}
+.moreProjects{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.moreProjects > button{
+    background-color: rgb(34, 34, 34);
+    padding: 12px;
+}
+
+.moreProjects > button:hover{
+    background-color: rgb(58, 58, 58);
+}
+
+.moreProjects > button>i{
+    font-size: medium;
+    transition: 0.5s;
+}
+.moreProjects > button:hover > i{
+     margin-left: 8px;
+}

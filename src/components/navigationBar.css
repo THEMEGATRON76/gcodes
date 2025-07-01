@@ -1,0 +1,391 @@
+/* 
+nav{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.settings{
+  margin-left: auto;
+}
+nav img{
+  width: 8rem;
+  margin-right: 30px;
+  cursor: pointer;
+}
+nav > a{
+  background-color:transparent;
+  padding: 15px;
+  border-radius: 9px ;
+  color: rgb(211, 211, 211);
+  transition: 0.5s;
+}
+
+nav> a:hover{
+  background-color:  rgb(211, 211, 211, 0.3);
+  color: rgb(255, 255, 255);
+} */
+
+/* ===== EXISTING DESKTOP NAVIGATION ===== */
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.settings {
+  margin-left: auto;
+  display: none;
+}
+
+nav img {
+  width: 8rem;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+nav > a {
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 9px;
+  color: rgb(211, 211, 211);
+  transition: 0.5s;
+  text-decoration: none;
+}
+.navButton {
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 9px;
+  color: rgb(211, 211, 211);
+  transition: 0.5s;
+  text-decoration: none;
+  height: auto;
+}
+.navButton>i{
+  font-size: small;
+  margin-left: 2px;
+  transition: 0.5s;
+}
+.selectedRotate{
+  transform: rotate(90deg);
+  margin-left: 6px;
+}
+.navButton:hover >i{
+  transform: rotate(90deg);
+  margin-left: 6px;
+}
+.navButton:hover {
+  background-color: rgb(211, 211, 211, 0.3);
+  color: rgb(255, 255, 255);
+}
+
+.selected{
+  background-color: rgb(211, 211, 211, 0.3);
+  color: rgb(255, 255, 255);
+}
+
+nav > a:hover {
+  background-color: rgb(211, 211, 211, 0.3);
+  color: rgb(255, 255, 255);
+}
+.dropDownContainer{
+  position: relative;
+  cursor: pointer;
+}
+.dropDownContainer >div{
+  display: block;
+  position: absolute;
+  margin-top: 12px;
+  background-color: #161616;
+  padding: 20px 20px 10px 20px;
+  min-width: 160px;
+  border-color: rgb(48, 48, 48);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 3;
+  border-radius: 12px;
+  border-width: 1.8px;
+  border-style: solid;
+  width: 300px;
+  left: -130px;
+}
+
+.dropdownAnchor{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 12px;
+}
+.dropdownAnchor:hover{
+  background-color: rgb(39, 39, 39);
+}
+.dropdownAnchor>div>p{
+  font-size: small;
+  margin: 0px 0px 2px 0px;
+}
+.firstPara{
+ color: #ffff;
+}
+
+.dropdownAnchor > :first-child{
+  display: flex;
+  background-color: rgb(48, 48, 48);
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+.dropdownAnchor>div> i {
+  font-size: 2.3rem;
+}
+
+/* ===== MOBILE SIDEBAR STYLES ===== */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background: linear-gradient(135deg, rgb(17, 17, 17) 0%, rgb(34, 34, 34) 100%);
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-sidebar.open {
+  left: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgb(48, 48, 48);
+}
+
+.sidebar-logo {
+  width: 6rem !important;
+  margin-right: 0 !important;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: rgb(211, 211, 211);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.sidebar-content {
+  flex: 1;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-content a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  color: rgb(211, 211, 211);
+  text-decoration: none;
+  transition: all 0.5s ease;
+  font-size: 16px;
+  font-weight: 500;
+  min-height: 50px;
+}
+
+.sidebar-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding-left: 25px;
+}
+
+.sidebar-content a i {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid rgb(48, 48, 48);
+  text-align: center;
+}
+
+.sidebar-footer p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  margin: 0;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.sidebar-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+/* ===== MOBILE RESPONSIVE NAVIGATION ===== */
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+    gap: 0;
+  }
+  
+  nav img {
+    width: 6rem;
+    margin-right: 0;
+  }
+  
+  /* Hide all navigation links except settings on mobile */
+  .nav-link {
+    display: none !important;
+  }
+  
+  .settings {
+    display: block;
+    margin-left: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  
+  .settings:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .settings i {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+    padding: 10px 15px;
+  }
+  
+  nav img {
+    width: 5rem;
+  }
+  
+  .mobile-sidebar {
+    width: 85%;
+    max-width: 280px;
+  }
+  
+  .sidebar-header {
+    padding: 15px;
+  }
+  
+  .sidebar-logo {
+    width: 5rem !important;
+  }
+  
+  .sidebar-content a {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  
+  .sidebar-content a:hover {
+    padding-left: 20px;
+  }
+  
+  .sidebar-footer {
+    padding: 15px;
+  }
+}
+
+/* ===== DESKTOP ONLY STYLES ===== */
+@media screen and (min-width: 769px) {
+  .mobile-sidebar,
+  .sidebar-overlay {
+    display: none !important;
+  }
+  
+  .settings {
+    cursor: pointer;
+  }
+}
+
+/* ===== SMOOTH ANIMATIONS ===== */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mobile-sidebar.open {
+  animation: slideIn 0.3s ease-out;
+}
+
+.sidebar-overlay.open {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ===== ACCESSIBILITY ===== */
+.close-btn:focus,
+.sidebar-content a:focus {
+  outline: 2px solid rgb(59, 130, 246);
+  outline-offset: 2px;
+}
+
+/* ===== TOUCH IMPROVEMENTS ===== */
+@media (hover: none) and (pointer: coarse) {
+  .sidebar-content a:hover {
+    padding-left: 20px;
+  }
+  
+  .sidebar-content a:active {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(0.98);
+  }
+  
+  .close-btn:active {
+    transform: scale(0.95);
+  }
+}
+

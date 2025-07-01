@@ -1,0 +1,82 @@
+.textbox-container {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          width: 100%;
+        }
+        
+        .textbox-label {
+          color: #ffffff;
+          font-size: 14px;
+          font-weight: 500;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        
+        .required-asterisk {
+          color: #ff4444;
+          font-weight: bold;
+        }
+        
+        .textbox-input {
+          background-color: #2a2a2a;
+          border: 1px solid #404040;
+          border-radius: 4px;
+          color: #ffffff;
+          font-size: 14px;
+          padding: 12px 16px;
+          outline: none;
+          transition: all 0.2s ease;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        
+        .textbox-input::placeholder {
+          color: #888888;
+          opacity: 1;
+        }
+        
+        .textbox-input:focus {
+          border-color: #0066cc;
+          box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+        
+        .textbox-input:hover:not(:focus) {
+          border-color: #555555;
+        }
+        
+        .textbox-input:disabled {
+          background-color: #1a1a1a;
+          border-color: #333333;
+          color: #666666;
+          cursor: not-allowed;
+        }
+        
+        .textbox-textarea {
+          min-height: 120px;
+          resize: vertical;
+          font-family: inherit;
+          line-height: 1.5;
+        }
+        
+        .character-counter {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 4px;
+        }
+        
+        .counter {
+          font-size: 12px;
+          color: #888888;
+          transition: color 0.2s ease;
+        }
+        
+        .counter.near-limit {
+          color: #ffaa00;
+        }
+        
+        .counter.over-limit {
+          color: #ff4444;
+        }

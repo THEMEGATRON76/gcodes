@@ -1,0 +1,133 @@
+body {
+  background-color: #161616;
+  height: 100vh;
+  color: white;
+  font-family: Geist Mono;
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+#holder {
+  width: 75%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+a {
+  color: rgb(229 229 229);
+  text-decoration: none;
+  font-size: larger;
+}
+
+p {
+  font-weight: 300;
+  letter-spacing: 1.8px;
+}
+button {
+  font-weight: 500;
+  font-size: medium;
+  letter-spacing: 1px;
+  font-family: Geist Mono;
+  color: #fff;
+}
+.button {
+  height: 45px;
+  border-width: 0px;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: large;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+/* Tablet Styles */
+@media screen and (max-width: 768px) {
+  #holder {
+    width: 95%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+    letter-spacing: 1.5px;
+  }
+  
+  p {
+    font-size: 0.9rem;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+  }
+  
+  a {
+    font-size: 1rem;
+  }
+  
+  .button {
+    height: 40px;
+    font-size: medium;
+    padding: 8px;
+  }
+  
+  button {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Styles (480px and below) */
+@media screen and (max-width: 480px) {
+  #holder {
+    width: 92%;
+    margin-left: 3%;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+  
+  p {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+  
+  a {
+    font-size: 0.9rem;
+  }
+  
+  .button {
+    height: 38px;
+    font-size: small;
+    padding: 6px;
+    border-radius: 4px;
+  }
+  
+  button {
+    font-size: 0.8rem;
+  }
+}
