@@ -1,12 +1,13 @@
-// NavigationBar.jsx
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import "./navigationBar.css";
 import { NavLink } from "react-router";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function NavigationBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [dropDown, setDropDown] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -16,132 +17,359 @@ export default function NavigationBar() {
     setIsSidebarOpen(false);
   };
 
-  function handdleDropdown() {
+  function handleDropdown() {
     setDropDown((prev) => !prev);
   }
+
+  // Animation variants
+  const dropdownVariants = {
+    hidden: {
+      opacity: 0,
+      y: -10,
+      scale: 0.95,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -10,
+      scale: 0.95,
+      transition: {
+        duration: 0.2,
+        ease: "easeIn",
+      },
+    },
+  };
+
+  const sidebarVariants = {
+    hidden: {
+      x: "-100%",
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      x: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const overlayVariants = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
+  const sidebarItemVariants = {
+    hidden: {
+      opacity: 0,
+      x: -20,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const staggerContainer = {
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
 
   return (
     <>
       <nav>
-        <img src={logo} alt="Logo" />
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive && !dropDown ? "selected nav-link" : "nav-link"
-          }
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="my-work"
-          className={({ isActive }) =>
-            isActive && !dropDown ? "selected nav-link" : "nav-link"
-          }
-        >
-          My Work
-        </NavLink>
-        <NavLink
-          to="contact-me"
-          className={({ isActive }) =>
-            isActive && !dropDown ? "selected nav-link" : "nav-link"
-          }
-        >
-          Contact Me
-        </NavLink>
-        <NavLink
-          to="blog"
-          className={({ isActive }) =>
-            isActive && !dropDown ? "selected nav-link" : "nav-link"
-          }
-        >
-          Blog
-        </NavLink>
+        <motion.img
+          src={logo}
+          alt="Logo"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.2 }}
+        />
+
+        <motion.div className="aTagsDiv" whileTap={{ scale: 0.95 }}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive && !dropDown ? "selected nav-link" : "nav-link"
+            }
+          >
+            Home
+          </NavLink>
+        </motion.div>
+
+        <motion.div className="aTagsDiv" whileTap={{ scale: 0.95 }}>
+          <NavLink
+            to="my-work"
+            className={({ isActive }) =>
+              isActive && !dropDown ? "selected nav-link" : "nav-link"
+            }
+          >
+            My Work
+          </NavLink>
+        </motion.div>
+
+        <motion.div className="aTagsDiv" whileTap={{ scale: 0.95 }}>
+          <NavLink
+            to="contact-me"
+            className={({ isActive }) =>
+              isActive && !dropDown ? "selected nav-link" : "nav-link"
+            }
+          >
+            Contact Me
+          </NavLink>
+        </motion.div>
+
+        <motion.div className="aTagsDiv" whileTap={{ scale: 0.95 }}>
+          <NavLink
+            to="blog"
+            className={({ isActive }) =>
+              isActive && !dropDown ? "selected nav-link" : "nav-link"
+            }
+          >
+            Blog
+          </NavLink>
+        </motion.div>
+
         <div className="dropDownContainer">
-          <button
-            onClick={handdleDropdown}
+          <motion.button
+            onClick={handleDropdown}
             className={
               dropDown
                 ? "selected button nav-link navButton"
                 : "navButton button nav-link"
             }
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             More
-            <i
-              className={
-                dropDown
-                  ? "fa-solid fa-chevron-right selectedRotate"
-                  : "fa-solid fa-chevron-right"
-              }
-            ></i>
-          </button>
+            <motion.i
+              className="fa-solid fa-chevron-right"
+              animate={{ rotate: dropDown || isHovered ? 90 : 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            />
+          </motion.button>
 
-          {dropDown && (
-            <div>
-              <a onClick={()=>setDropDown(false)} href="https://github.com/THEMEGATRON76" target="_blank" className="dropdownAnchor">
-                <div>
-                  <i class="fa-brands fa-github"></i>
-                </div>
-                <div>
-                  <p className="firstPara">My Github Profile</p>
-                  <p> Explore my projects and contributions.</p>
-                </div>
-              </a>
-              <NavLink onClick={()=>setDropDown(false)} to="contact-me" className="dropdownAnchor">
-                <div>
-                  <i class="fa-solid fa-address-card"></i>
-                </div>
-                <div>
-                  <p className="firstPara">Contact Me</p>
-                  <p> Have an Question? Feel free to reach me..</p>
-                </div>
-              </NavLink>
-            </div>
-          )}
+          <AnimatePresence>
+            {dropDown && (
+              <motion.div
+                variants={dropdownVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="dropdown-menu"
+              >
+                <motion.a
+                  onClick={() => setDropDown(false)}
+                  href="https://github.com/THEMEGATRON76"
+                  target="_blank"
+                  className="dropdownAnchor"
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div>
+                    <i className="fa-brands fa-github"></i>
+                  </div>
+                  <div>
+                    <p className="firstPara">My Github Profile</p>
+                    <p>Explore my projects and contributions.</p>
+                  </div>
+                </motion.a>
+
+                <motion.div
+                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.02, x: 5 }}
+                >
+                  <NavLink
+                    onClick={() => setDropDown(false)}
+                    to="contact-me"
+                    className="dropdownAnchor"
+                  >
+                    <div>
+                      <i className="fa-solid fa-address-card"></i>
+                    </div>
+                    <div>
+                      <p className="firstPara">Contact Me</p>
+                      <p>Have a Question? Feel free to reach me..</p>
+                    </div>
+                  </NavLink>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        <button className="navButton settings button " onClick={toggleSidebar}>
-          <i class="fa-solid fa-bars"></i>
-        </button>
-        {/* <button className="navButton settings button" onClick={toggleSidebar}>
-          <i class="fa-solid fa-gear"></i>
-        </button> */}
+
+        <motion.button
+          className="navButton settings button"
+          onClick={toggleSidebar}
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+          style={{ marginLeft: "auto" }}
+        >
+          <motion.i
+            className="fa-solid fa-bars"
+            animate={{ rotate: isSidebarOpen ? 90 : 0 }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.button>
       </nav>
 
       {/* Mobile Sidebar */}
-      <div className={`mobile-sidebar ${isSidebarOpen ? "open" : ""}`}>
-        <div className="sidebar-header">
-          <img src={logo} alt="Logo" className="sidebar-logo" />
-          <button className="close-btn" onClick={closeSidebar}>
-            <i className="fa-solid fa-times"></i>
-          </button>
-        </div>
-        <div className="sidebar-content">
-          <NavLink to="/" onClick={closeSidebar}>
-            <i className="fa-solid fa-home"></i>
-            Home
-          </NavLink>
-          <NavLink to="my-work" onClick={closeSidebar}>
-            <i className="fa-solid fa-briefcase"></i>
-            My Work
-          </NavLink>
-          <NavLink to="contact-me" onClick={closeSidebar}>
-            <i className="fa-solid fa-envelope"></i>
-            Contact Me
-          </NavLink>
-          <NavLink to="blog" onClick={closeSidebar}>
-            <i className="fa-solid fa-ellipsis"></i>
-            Blog
-          </NavLink>
-        </div>
-        <div className="sidebar-footer">
-          <p>Made with ❤️ by Geetansh</p>
-        </div>
-      </div>
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.div
+            className="mobile-sidebar"
+            variants={sidebarVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
+            <motion.div
+              className="sidebar-header"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
+            >
+              <motion.img
+                src={logo}
+                alt="Logo"
+                className="sidebar-logo"
+                whileTap={{ scale: 0.95 }}
+              />
+              <motion.button
+                className="close-btn"
+                onClick={closeSidebar}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                transition={{ duration: 0.2 }}
+              >
+                <i className="fa-solid fa-times"></i>
+              </motion.button>
+            </motion.div>
+
+            <motion.div
+              className="sidebar-content"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div
+                variants={sidebarItemVariants}
+                whileTap={{ scale: 0.95 }}
+              >
+                <NavLink to="/" onClick={closeSidebar}>
+                  <i className="fa-solid fa-home"></i>
+                  Home
+                </NavLink>
+              </motion.div>
+
+              <motion.div
+                variants={sidebarItemVariants}
+                whileTap={{ scale: 0.95 }}
+              >
+                <NavLink to="my-work" onClick={closeSidebar}>
+                  <i className="fa-solid fa-briefcase"></i>
+                  My Work
+                </NavLink>
+              </motion.div>
+
+              <motion.div
+                variants={sidebarItemVariants}
+                whileTap={{ scale: 0.95 }}
+              >
+                <NavLink to="contact-me" onClick={closeSidebar}>
+                  <i className="fa-solid fa-envelope"></i>
+                  Contact Me
+                </NavLink>
+              </motion.div>
+
+              <motion.div
+                variants={sidebarItemVariants}
+                whileTap={{ scale: 0.95 }}
+              >
+                <NavLink to="blog" onClick={closeSidebar}>
+                  <i className="fa-solid fa-newspaper"></i>
+                  Blog
+                </NavLink>
+              </motion.div>
+
+              <motion.div
+                variants={sidebarItemVariants}
+                whileTap={{ scale: 0.95 }}
+              >
+                <a
+                  href="https://github.com/THEMEGATRON76"
+                  target="_blank"
+                  onClick={closeSidebar}
+                >
+                  <i className="fa-brands fa-github"></i>
+                  My Github
+                </a>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              className="sidebar-footer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.3 }}
+            >
+              <p>Made with ❤️ by Geetansh</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Overlay */}
-      <div
-        className={`sidebar-overlay ${isSidebarOpen ? "open" : ""}`}
-        onClick={closeSidebar}
-      ></div>
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.div
+            className="sidebar-overlay"
+            variants={overlayVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            onClick={closeSidebar}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

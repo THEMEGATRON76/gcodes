@@ -12,6 +12,7 @@
     padding-top: 15px;
     padding-left: 30px;
     padding-bottom: 15px;
+    width: 91%;
 }
 
 .PictureCard::before {
@@ -77,7 +78,10 @@ width: 100%;
 .paras p{
     color: rgba(255, 255, 255, 0.7);
 }
-
+.buttonHolder{
+    display: flex;
+    align-items: center;
+}
 .gitHubButton{
     background-color:rgb(59, 130, 246) ;
 }
@@ -170,10 +174,12 @@ width: 100%;
     margin-top: 70px;
 }
 #TechDiv{
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 
-#TechDiv > .techTag{
+#TechDiv >.techTag{
     margin-top: 20px;
     margin-right: 20px;
     cursor: pointer;

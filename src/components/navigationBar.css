@@ -1,31 +1,3 @@
-/* 
-nav{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
-}
-.settings{
-  margin-left: auto;
-}
-nav img{
-  width: 8rem;
-  margin-right: 30px;
-  cursor: pointer;
-}
-nav > a{
-  background-color:transparent;
-  padding: 15px;
-  border-radius: 9px ;
-  color: rgb(211, 211, 211);
-  transition: 0.5s;
-}
-
-nav> a:hover{
-  background-color:  rgb(211, 211, 211, 0.3);
-  color: rgb(255, 255, 255);
-} */
-
 /* ===== EXISTING DESKTOP NAVIGATION ===== */
 nav {
   display: flex;
@@ -45,55 +17,63 @@ nav img {
   cursor: pointer;
 }
 
-nav > a {
+nav > .aTagsDiv {
+  background-color: transparent;
+  color: rgb(211, 211, 211);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+nav >.aTagsDiv >a{
   background-color: transparent;
   padding: 15px;
   border-radius: 9px;
   color: rgb(211, 211, 211);
-  transition: 0.5s;
+  transition: background-color 0.3s ease, color 0.3s ease;
   text-decoration: none;
 }
+
 .navButton {
   background-color: transparent;
   padding: 15px;
   border-radius: 9px;
   color: rgb(211, 211, 211);
-  transition: 0.5s;
+  transition: background-color 0.3s ease, color 0.3s ease;
   text-decoration: none;
   height: auto;
+  cursor: pointer;
 }
-.navButton>i{
+
+.navButton > i {
   font-size: small;
   margin-left: 2px;
-  transition: 0.5s;
 }
-.selectedRotate{
-  transform: rotate(90deg);
-  margin-left: 6px;
-}
-.navButton:hover >i{
-  transform: rotate(90deg);
-  margin-left: 6px;
-}
+
 .navButton:hover {
   background-color: rgb(211, 211, 211, 0.3);
   color: rgb(255, 255, 255);
 }
 
+nav > .aTagsDiv > a.selected {
+  background-color: rgb(211, 211, 211, 0.3);
+  color: rgb(255, 255, 255);
+}
 .selected{
+   background-color: rgb(211, 211, 211, 0.3);
+  color: rgb(255, 255, 255);
+}
+
+nav > .aTagsDiv> a:hover {
   background-color: rgb(211, 211, 211, 0.3);
   color: rgb(255, 255, 255);
 }
 
-nav > a:hover {
-  background-color: rgb(211, 211, 211, 0.3);
-  color: rgb(255, 255, 255);
-}
-.dropDownContainer{
+.dropDownContainer {
   position: relative;
   cursor: pointer;
 }
-.dropDownContainer >div{
+
+/* Updated dropdown menu styling for better animation support */
+.dropdown-menu {
   display: block;
   position: absolute;
   margin-top: 12px;
@@ -108,28 +88,34 @@ nav > a:hover {
   border-style: solid;
   width: 300px;
   left: -130px;
+  transform-origin: top center;
 }
 
-.dropdownAnchor{
+.dropdownAnchor {
   display: flex;
   flex-direction: row;
   gap: 12px;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 12px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
 }
-.dropdownAnchor:hover{
+
+.dropdownAnchor:hover {
   background-color: rgb(39, 39, 39);
 }
-.dropdownAnchor>div>p{
+
+.dropdownAnchor > div > p {
   font-size: small;
   margin: 0px 0px 2px 0px;
 }
-.firstPara{
- color: #ffff;
+
+.firstPara {
+  color: #ffff;
 }
 
-.dropdownAnchor > :first-child{
+.dropdownAnchor > :first-child {
   display: flex;
   background-color: rgb(48, 48, 48);
   width: 100px;
@@ -137,7 +123,8 @@ nav > a:hover {
   justify-content: center;
   border-radius: 12px;
 }
-.dropdownAnchor>div> i {
+
+.dropdownAnchor > div > i {
   font-size: 2.3rem;
 }
 
@@ -145,20 +132,15 @@ nav > a:hover {
 .mobile-sidebar {
   position: fixed;
   top: 0;
-  left: -100%;
+  left: 0;
   width: 80%;
   max-width: 300px;
   height: 100vh;
   background: linear-gradient(135deg, rgb(17, 17, 17) 0%, rgb(34, 34, 34) 100%);
   z-index: 1000;
-  transition: left 0.3s ease-in-out;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-}
-
-.mobile-sidebar.open {
-  left: 0;
 }
 
 .sidebar-header {
@@ -182,7 +164,7 @@ nav > a:hover {
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
-  transition: all 0.5s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   min-width: 40px;
   min-height: 40px;
   display: flex;
@@ -210,7 +192,7 @@ nav > a:hover {
   padding: 15px 20px;
   color: rgb(211, 211, 211);
   text-decoration: none;
-  transition: all 0.5s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
   font-size: 16px;
   font-weight: 500;
   min-height: 50px;
@@ -248,15 +230,9 @@ nav > a:hover {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease;
+  backdrop-filter: blur(2px);
 }
 
-.sidebar-overlay.open {
-  opacity: 1;
-  visibility: visible;
-}
 /* ===== MOBILE RESPONSIVE NAVIGATION ===== */
 @media screen and (max-width: 768px) {
   nav {
@@ -271,6 +247,10 @@ nav > a:hover {
   
   /* Hide all navigation links except settings on mobile */
   .nav-link {
+    display: none !important;
+  }
+  
+  .dropDownContainer {
     display: none !important;
   }
   
@@ -339,33 +319,6 @@ nav > a:hover {
   }
 }
 
-/* ===== SMOOTH ANIMATIONS ===== */
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.mobile-sidebar.open {
-  animation: slideIn 0.3s ease-out;
-}
-
-.sidebar-overlay.open {
-  animation: fadeIn 0.3s ease-out;
-}
-
 /* ===== ACCESSIBILITY ===== */
 .close-btn:focus,
 .sidebar-content a:focus {
@@ -381,11 +334,59 @@ nav > a:hover {
   
   .sidebar-content a:active {
     background-color: rgba(255, 255, 255, 0.15);
-    transform: scale(0.98);
   }
   
   .close-btn:active {
-    transform: scale(0.95);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .navButton:active,
+  nav > a:active {
+    background-color: rgb(211, 211, 211, 0.4);
+  }
+  
+  .dropdownAnchor:active {
+    background-color: rgb(48, 48, 48);
   }
 }
 
+/* ===== ANIMATION SPECIFIC STYLES ===== */
+.mobile-sidebar * {
+  user-select: none;
+}
+
+.dropdown-menu * {
+  user-select: none;
+}
+
+/* Prevent text selection during animations */
+nav * {
+  user-select: none;
+}
+/* Enhanced button states for better feedback */
+.navButton,
+nav > a {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Active states for better touch feedback */
+.navButton:active,
+nav > a:active {
+  background-color: rgb(211, 211, 211, 0.4) !important;
+}
+
+/* Improved dropdown positioning on smaller screens */
+@media screen and (max-width: 1024px) {
+  .dropdown-menu {
+    left: -200px;
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .dropdown-menu {
+    left: -250px;
+    width: 280px;
+  }
+}
