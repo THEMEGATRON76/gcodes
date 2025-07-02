@@ -320,11 +320,11 @@ nav > .aTagsDiv> a:hover {
 }
 
 /* ===== ACCESSIBILITY ===== */
-.close-btn:focus,
+/* .close-btn:focus,
 .sidebar-content a:focus {
   outline: 2px solid rgb(59, 130, 246);
   outline-offset: 2px;
-}
+} */
 
 /* ===== TOUCH IMPROVEMENTS ===== */
 @media (hover: none) and (pointer: coarse) {

@@ -182,7 +182,7 @@
     margin: 0 5px;
     background-image: url('./assets/mu-pic.png');
     background-size: cover;
-    background-position: left;
+    background-position: -20px -10px ;
   }
 
   .PictureCard h1 {
@@ -194,7 +194,7 @@
   }
 
   .PictureCard p {
-    width: 68%;
+    width: 69%;
     font-size: 14px;
   }
 

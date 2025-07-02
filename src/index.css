@@ -88,6 +88,16 @@ button {
   }
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, a, .button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  touch-action: manipulation;
+}
+
 /* Mobile Styles (480px and below) */
 @media screen and (max-width: 480px) {
   #holder {
