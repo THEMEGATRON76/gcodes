@@ -29,3 +29,14 @@
 .techTag > div > p{
     font-size: small;
 }
+
+@media screen and (max-width: 480px) {
+    .techTag > div > img{
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+    }
+    .techTag > div{
+        padding: 0px 6px 0px 6px;
+    }
+}

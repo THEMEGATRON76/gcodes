@@ -96,7 +96,7 @@ const porjObj = [
       { name: "React", img: reactNative, alt: "React" },
       { name: "bootstrap", img: bootstrao, alt: "Bootstrap" },
     ],
-    url: null,
+    url:"https://charming-cascaron-0e31f0.netlify.app/",
     //githubLink
   },
   {
@@ -109,7 +109,7 @@ const porjObj = [
       { name: "React", img: reactNative, alt: "React" },
       { name: "Tailwind", img: tailWindImg, alt: "Tailwind" },
     ],
-    url: null,
+    url:"https://unrivaled-wisp-bf9af9.netlify.app/",
     //githubLink
   },
   {

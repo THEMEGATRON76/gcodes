@@ -66,7 +66,7 @@
     align-items: flex-start;
   }
 
-  .buttonHolder{
+  .buttonHolder {
     display: flex;
     flex-direction: column;
   }
@@ -180,9 +180,9 @@
   .PictureCard {
     padding: 15px;
     margin: 0 5px;
-    background-image: url('./assets/mu-pic.png');
+    background-image: url("./assets/mu-pic.png");
     background-size: cover;
-    background-position: -20px -10px ;
+    background-position: -20px -10px;
     width: 91%;
   }
 
@@ -215,6 +215,7 @@
   /* GitHub Data */
   .GitHubData {
     flex-direction: column;
+    width: 95%;
     gap: 10px;
   }
 
@@ -237,7 +238,7 @@
   }
 
   /* Buttons */
-   .button {
+  .button {
     padding: 12px 16px;
     font-size: 16px;
     display: inline-block;
@@ -245,8 +246,7 @@
     margin: 0; /* No conflicting margins */
   }
 
-
-  .buttonHolder{
+  .buttonHolder {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -254,7 +254,7 @@
     align-items: center;
     gap: 20px;
   }
-  .buttonHolder > div{
+  .buttonHolder > div {
     display: block;
   }
 
@@ -266,15 +266,15 @@
     padding: 15px 10px 0px 10px;
     margin-left: 30px;
   }
-  .contactMeButton{
-    width:266px ;
+  .contactMeButton {
+    width: 266px;
   }
 
-  .gitHubButton >.fa-brands{
+  .gitHubButton > .fa-brands {
     margin-left: 25px;
   }
 
-  .contactMeButton>.fa-brands{
+  .contactMeButton > .fa-brands {
     margin-left: 65px;
   }
 
@@ -354,6 +354,11 @@
 
   #fotter > div > div a {
     font-size: 13px;
+  }
+  .workgitHubButton {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 }
 
@@ -435,5 +440,26 @@
 
   .mobile-gap {
     gap: 15px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .PictureCard {
+    background-position: -70px;
+  }
+  .gitHubButton,
+  .contactMeButton {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px 10px 0px 10px;
+    margin-left: 30px;
+  }
+  .gitHubButton,
+  .contactMeButton {
+    margin-left: 20px;
+  }
+  .contactMeButton {
+    width: 259px;
   }
 }
