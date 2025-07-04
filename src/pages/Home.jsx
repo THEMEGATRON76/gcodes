@@ -7,35 +7,9 @@ import ContactMe from "../components/ContactMe";
 import { techIknow } from "../data/techIknow";
 import { NavLink } from "react-router";
 import { motion } from "motion/react";
+import {homeWork} from "../data/myWorkData";
 
 export default function Home() {
-  const porjObj = [
-    {
-      heading: "CMIS",
-      date: "12/12/41",
-      desc: "It was an react native project focused for the delivery drivers and their operation",
-      picture: cmis,
-      alt: "cmis poject",
-      techs: [
-        { name: "React Native", img: reactNative, alt: "reactnative" },
-        { name: "React Native", img: reactNative, alt: "reactnative" },
-      ],
-      url: "https://www.cedricmillar.com/",
-    },
-    {
-      heading: "CMIS",
-      date: null,
-      desc: "It was an react native project focused for the delivery drivers and their operation",
-      picture: cmis,
-      alt: "cmis poject",
-      techs: [
-        { name: "React Native", img: reactNative, alt: "reactnative" },
-        { name: "React Native", img: reactNative, alt: "reactnative" },
-      ],
-      url: null,
-    },
-  ];
-
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -226,12 +200,13 @@ export default function Home() {
       </motion.section>
 
       <motion.div
+        id="recentProjects"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
         variants={fadeInUp}
       >
-        <RecentProjects projects={porjObj} page="home" />
+        <RecentProjects projects={homeWork} page="home" />
       </motion.div>
 
       <motion.div

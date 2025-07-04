@@ -1,0 +1,20 @@
+.workgitHubButton{
+    display: flex;
+    background-color:rgb(59, 130, 246) ;
+    align-items: center;
+    gap: 12px;
+}
+.workgitHubButton:hover{
+    background-color:rgb(37 , 99,235) ;
+
+}
+.workgitHubButton > i{
+    font-size: 25px;
+    transition: 0.5s;
+}
+.workgitHubButton:hover > i{
+    margin-left: 5px;
+}
+.workgitHubButton > .fa-arrow-right{
+    font-size: medium;
+}

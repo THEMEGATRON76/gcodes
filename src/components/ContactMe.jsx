@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./contactMe.css";
 import Textbox from "./TextBox";
-import insta from '../assets/symbols/icons8-instagram-logo-48.png'
-import fb from '../assets/symbols/icons8-facebook-48.png'
-import linkedIn from '../assets/symbols/icons8-linkedin-48.png'
+import insta from "../assets/symbols/icons8-instagram-logo-48.png";
+import fb from "../assets/symbols/icons8-facebook-48.png";
+import linkedIn from "../assets/symbols/icons8-linkedin-48.png";
 
 export default function ContactMe() {
   const [formData, setFormData] = useState({
@@ -28,6 +28,22 @@ export default function ContactMe() {
     console.log("Email:", formData.email);
     console.log("Description:", formData.description);
   };
+  function handdleClick(social) {
+    switch (social) {
+      case "ig":
+        window.open("https://www.instagram.com/rathoregeetansh/", "_blank");
+        break;
+      case "fb":
+        window.open("https://www.facebook.com/geetansh.rathore", "_blank");
+        break;
+      case "link":
+        window.open("https://www.linkedin.com/in/geetansh-rathore-078579140/", "_blank");
+        break;
+      case "mail":
+        window.location = "mailto:xyz@yourapplicationdomain.com";
+        break;
+    }
+  }
 
   return (
     <div id="ContactMe">
@@ -77,10 +93,22 @@ export default function ContactMe() {
       </div>
       <p>Or contcat me with ...</p>
       <div className="socilas">
-        <button className="button"><i class="fa-solid fa-envelope"></i> Email <i class="fa-solid fa-arrow-right"></i></button>
-        <button className="button"><img src={insta} width={30} />Intagram <i class="fa-solid fa-arrow-right"></i></button>
-        <button className="button"><img src={fb} width={30} alt="" />Facebook <i class="fa-solid fa-arrow-right"></i></button>
-        <button className="button"><img src={linkedIn} alt="" width={30} />LinkedIn <i class="fa-solid fa-arrow-right"></i></button>
+        <button className="button" onClick={() => handdleClick("mail")}>
+          <i class="fa-solid fa-envelope"></i> Email{" "}
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button className="button" onClick={() => handdleClick("ig")}>
+          <img src={insta} width={30} />
+          Intagram <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button className="button" onClick={() => handdleClick("fb")}>
+          <img src={fb} width={30} alt="" />
+          Facebook <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button className="button" onClick={() => handdleClick("link")}>
+          <img src={linkedIn} alt="" width={30} />
+          LinkedIn <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </div>
     </div>
   );
