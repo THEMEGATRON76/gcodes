@@ -5,14 +5,17 @@ import Work from "./pages/Work";
 import NavigationBar from "./components/NavigationBar";
 import Fotter from "./components/Fotter";
 import Bolg from "./pages/Bolg";
+import { ThemeProvider } from "./Context/ThemeContextProvider";
 
 // Layout component that includes NavigationBar
 function Layout() {
   return (
     <>
-      <NavigationBar />
-      <Outlet />
-      <Fotter/>
+      <ThemeProvider>
+        <NavigationBar />
+        <Outlet />
+        <Fotter />
+      </ThemeProvider>
     </>
   );
 }
@@ -26,8 +29,8 @@ const router = createBrowserRouter([
       { path: "/my-work", Component: Work },
       { path: "/contact-me", Component: ContactUs },
       { path: "/blog", Component: Bolg },
-    ]
-  }
+    ],
+  },
 ]);
 
 export default router;

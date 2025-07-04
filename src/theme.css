@@ -1,0 +1,320 @@
+/* ===== CSS CUSTOM PROPERTIES FOR THEME SWITCHING ===== */
+:root {
+  --transition-duration: 0.5s;
+  --transition-timing: ease-in-out;
+}
+
+/* Dark Theme (Default) */
+[data-theme="dark"] {
+  --bg-primary: #161616;
+  --bg-secondary: rgb(34, 34, 34);
+  --bg-tertiary: rgb(48, 48, 48);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgb(211, 211, 211);
+  --border-color: rgb(48, 48, 48);
+  --hover-bg: rgba(68, 68, 68, 0.2);
+  --button-hover: rgb(58, 58, 58);
+  --glassmorphism-bg: rgba(255, 255, 255, 0.2);
+  --glassmorphism-border: rgba(255, 255, 255, 0.84);
+  --overlay-bg: rgba(0, 0, 0, 0.199);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: rgb(34, 34, 34); /* Keep same as requested */
+  --bg-tertiary: rgb(48, 48, 48); /* Keep same as requested */
+  --text-primary: #000000;
+  --text-secondary: #4a4a4a;
+  --text-tertiary: #666666;
+  --border-color: rgb(48, 48, 48); /* Keep same as requested */
+  --hover-bg: rgba(0, 0, 0, 0.1);
+  --button-hover: rgb(58, 58, 58); /* Keep same as requested */
+  --glassmorphism-bg: rgba(0, 0, 0, 0.1);
+  --glassmorphism-border: rgba(0, 0, 0, 0.2);
+  --overlay-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== THEME TOGGLE BUTTON STYLES ===== */
+.theme-toggle-button {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-duration) var(--transition-timing);
+  margin-left: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle-button:hover {
+  background: var(--button-hover);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle-icon {
+  font-size: 18px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.theme-toggle-icon i {
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+/* ===== GLOBAL THEME TRANSITIONS ===== */
+* {
+  transition: background-color var(--transition-duration) var(--transition-timing),
+              color var(--transition-duration) var(--transition-timing),
+              border-color var(--transition-duration) var(--transition-timing),
+              box-shadow var(--transition-duration) var(--transition-timing);
+}
+
+/* ===== APPLY THEME VARIABLES TO EXISTING STYLES ===== */
+
+/* Body */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: var(--text-primary);
+}
+
+/* Paragraphs */
+p {
+  color: var(--text-secondary);
+}
+
+/* Links */
+a {
+  color: var(--text-tertiary);
+}
+
+/* Navigation */
+nav > .aTagsDiv > a {
+  color: var(--text-tertiary);
+}
+
+.navButton {
+  color: var(--text-tertiary);
+}
+
+.navButton:hover,
+nav > .aTagsDiv > a:hover {
+  color: var(--text-primary);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+.dropdownAnchor:hover {
+  background-color: var(--bg-secondary);
+}
+
+.firstPara {
+  color: var(--text-primary);
+}
+
+.dropdownAnchor > :first-child {
+  background-color: var(--bg-tertiary);
+}
+
+/* Picture Card */
+.PictureCard::before {
+  background-color: var(--overlay-bg);
+}
+
+.PictureCard div {
+  background: var(--glassmorphism-bg);
+  border: 1px solid var(--glassmorphism-border);
+}
+
+/* GitHub Data */
+.GitHubData a {
+  color: var(--text-secondary);
+}
+
+.GitHubData a:hover {
+  color: var(--text-primary);
+}
+
+/* Flash Card */
+.flashCard {
+  border-color: var(--border-color);
+}
+
+.flashCard button {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.flashCard button:hover {
+  background-color: var(--bg-primary);
+}
+
+.smallCard {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+/* Tech Tags */
+.techTag > div {
+  border-color: var(--border-color);
+}
+
+.techTag > div:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Contact Me */
+#ContactMe > p {
+  color: var(--text-secondary);
+}
+
+#ContactMe > .formCard {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+#ContactMe > div > form > button {
+  background-color: var(--bg-tertiary);
+}
+
+.socilas > button {
+  background-color: var(--bg-secondary);
+}
+
+.socilas > button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Projects */
+#projects > p {
+  color: var(--text-secondary);
+}
+
+.moreProjects > button {
+  background-color: var(--bg-secondary);
+}
+
+.moreProjects > button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Footer */
+#fotter > div > div a {
+  color: var(--text-secondary);
+}
+
+#fotter > div > div a:hover {
+  color: var(--text-primary);
+}
+
+/* Textbox */
+.textbox-label {
+  color: var(--text-primary);
+}
+
+.textbox-input {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.textbox-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.textbox-input:hover:not(:focus) {
+  border-color: var(--text-secondary);
+}
+
+.textbox-input:disabled {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.counter {
+  color: var(--text-secondary);
+}
+
+/* Mobile Sidebar */
+.mobile-sidebar {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.sidebar-header {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.close-btn {
+  color: var(--text-tertiary);
+}
+
+.close-btn:hover {
+  color: var(--text-primary);
+}
+
+.sidebar-content a {
+  color: var(--text-tertiary);
+}
+
+.sidebar-content a:hover {
+  color: var(--text-primary);
+}
+
+.sidebar-footer {
+  border-top: 1px solid var(--border-color);
+}
+
+.sidebar-footer p {
+  color: var(--text-secondary);
+}
+
+/* Mobile Responsive for Theme Toggle */
+@media screen and (max-width: 768px) {
+  .theme-toggle-button {
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+  }
+  
+  .theme-toggle-icon {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .theme-toggle-button {
+    width: 38px;
+    height: 38px;
+    margin-left: 6px;
+  }
+  
+  .theme-toggle-icon {
+    font-size: 14px;
+  }
+}
+
+/* Prevent transition on page load */
+.no-transition * {
+  transition: none !important;
+}

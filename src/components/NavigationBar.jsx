@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import "./navigationBar.css";
 import { NavLink } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
+import ThemeToggleButton from "./ThemeToggle";
 
 export default function NavigationBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -235,13 +236,16 @@ export default function NavigationBar() {
           </AnimatePresence>
         </div>
 
+        {/* Theme Toggle Button */}
+        <ThemeToggleButton />
+
         <motion.button
           className="navButton settings button"
           onClick={toggleSidebar}
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
-          style={{ marginLeft: "auto" }}
+          style={{ marginLeft: "10px" }}
         >
           <motion.i
             className="fa-solid fa-bars"
@@ -273,15 +277,20 @@ export default function NavigationBar() {
                 className="sidebar-logo"
                 whileTap={{ scale: 0.95 }}
               />
-              <motion.button
-                className="close-btn"
-                onClick={closeSidebar}
-                whileTap={{ scale: 0.9 }}
-                whileHover={{ scale: 1.1, rotate: 90 }}
-                transition={{ duration: 0.2 }}
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
               >
-                <i className="fa-solid fa-times"></i>
-              </motion.button>
+                <ThemeToggleButton />
+                <motion.button
+                  className="close-btn"
+                  onClick={closeSidebar}
+                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <i className="fa-solid fa-times"></i>
+                </motion.button>
+              </div>
             </motion.div>
 
             <motion.div
