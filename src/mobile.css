@@ -183,6 +183,7 @@
     background-image: url('./assets/mu-pic.png');
     background-size: cover;
     background-position: -20px -10px ;
+    width: 91%;
   }
 
   .PictureCard h1 {

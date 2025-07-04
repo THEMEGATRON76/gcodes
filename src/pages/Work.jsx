@@ -1,34 +1,11 @@
 import RecentProjects from "../components/RecentProjects";
-import cmis from "../assets/workWebsite/Cedric.png";
-import reactNative from "../assets/symbols/icons8-react-48.png";
+import {porjObj} from "../data/myWorkData"
+import "./work.css"
 
 export default function Work() {
-  const porjObj = [
-    {
-      heading: "CMIS",
-      date: "12/12/41",
-      desc: "It was an react native project focused for the delivery drivers and their operation",
-      picture: cmis,
-      alt: "cmis poject",
-      techs: [
-        { name: "React Native", img: reactNative, alt: "reactnative" },
-        { name: "React Native", img: reactNative, alt: "reactnative" },
-      ],
-      url: "https://www.cedricmillar.com/",
-    },
-    {
-      heading: "CMIS",
-      date: null,
-      desc: "It was an react native project focused for the delivery drivers and their operation",
-      picture: cmis,
-      alt: "cmis poject",
-      techs: [
-        { name: "React Native", img: reactNative, alt: "reactnative" },
-        { name: "React Native", img: reactNative, alt: "reactnative" },
-      ],
-      url: null,
-    },
-  ];
+  function handdleClick(){
+    window.open("https://github.com/THEMEGATRON76","_blank")
+  }
   return (
     <>
       <h1>My Work.</h1>
@@ -43,7 +20,7 @@ export default function Work() {
         Want to see more? Check out my GitHub profile for more projects and
         contributions.
       </p>
-      <button className="gitHubButton button">
+      <button className="workgitHubButton button" onClick={handdleClick}>
         <i class="fa-brands fa-github"></i> View my Github{" "}
         <i class="fa-solid fa-arrow-right"></i>
       </button>

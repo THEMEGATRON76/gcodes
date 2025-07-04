@@ -15,6 +15,8 @@ import esLintImg from "../assets/symbols/icons8-eslint-48.png"
 import bootstrao from "../assets/symbols/icons8-bootstrap-48.png"
 import nextjs from "../assets/symbols/nextJs.png"
 import javaScript from "../assets/symbols/javascript-logo-svgrepo-com.png"
+import wix from "../assets/symbols/icons8-wix-48.png";
+import wordpress from "../assets/symbols/icons8-wordpress-48.png";
 
  export const techIknow = [
     {
@@ -101,5 +103,15 @@ import javaScript from "../assets/symbols/javascript-logo-svgrepo-com.png"
         name: "Bootstrap",
         img: bootstrao,
         alt: "Bootstrap Logo"
+    },
+    {
+        name: "Wordpress",
+        img: wordpress,
+        alt: "WordPress"
+    },
+    {
+        name: "Wix",
+        img: wix,
+        alt: "wix Logo"
     }
 ]
